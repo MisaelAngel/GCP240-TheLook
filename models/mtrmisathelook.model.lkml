@@ -7,6 +7,7 @@ include: "/views/**/*.view.lkml"
 # Datagroups define a caching policy for an Explore. To learn more,
 # use the Quick Help panel on the right to see documentation.
 # test_commit2
+# test_alex_user
 datagroup: mtrmisathelook_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
