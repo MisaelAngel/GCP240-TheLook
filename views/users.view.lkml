@@ -65,6 +65,8 @@ view: users {
   dimension: gender {
     type: string
     sql: ${TABLE}.gender ;;
+    suggest_explore: orders
+    suggest_dimension: orders.status
   }
 
   dimension: last_name {
