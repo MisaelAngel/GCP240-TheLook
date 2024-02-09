@@ -9,6 +9,7 @@ view: orders {
   # You need to define a primary key in a view in order to join to other views.
 
 # comment_1
+# comment_2
   dimension: id {
     primary_key: yes
     type: number
