@@ -8,6 +8,7 @@ view: orders {
   # This primary key is the unique key for this table in the underlying database.
   # You need to define a primary key in a view in order to join to other views.
 
+# comment_1
   dimension: id {
     primary_key: yes
     type: number
@@ -43,18 +44,18 @@ view: orders {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	users.id,
-	users.first_name,
-	users.last_name,
-	billion_orders.count,
-	fakeorders.count,
-	hundred_million_orders.count,
-	hundred_million_orders_wide.count,
-	order_items.count,
-	order_items_vijaya.count,
-	ten_million_orders.count
-	]
+  id,
+  users.id,
+  users.first_name,
+  users.last_name,
+  billion_orders.count,
+  fakeorders.count,
+  hundred_million_orders.count,
+  hundred_million_orders_wide.count,
+  order_items.count,
+  order_items_vijaya.count,
+  ten_million_orders.count
+  ]
   }
 
 }
