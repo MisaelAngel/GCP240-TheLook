@@ -6,4 +6,4 @@ project_name: "mtrmisathelook"
 # local_dependency: {
 #   project: "name_of_other_project"
 # }
-new_lookml_runtime: no
+new_lookml_runtime: yes
