@@ -4,6 +4,7 @@ connection: "thelook"
 # include all the views
 include: "/views/**/*.view.lkml"
 include: "/Test_Tile_LookML.dashboard.lookml"
+include: "/test_m_q.dashboard.lookml"
 
 # Datagroups define a caching policy for an Explore. To learn more,
 # use the Quick Help panel on the right to see documentation.
@@ -124,6 +125,11 @@ explore: orders {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
     relationship: many_to_one
+  }
+
+  access_filter: {
+    field: users.email
+    user_attribute: email
   }
 }
 
