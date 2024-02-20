@@ -127,10 +127,10 @@ explore: orders {
     relationship: many_to_one
   }
 
-  access_filter: {
-    field: users.email
-    user_attribute: email
-  }
+  # access_filter: {
+  #   field: users.email
+  #   user_attribute: email
+  # }
 }
 
 explore: order_items {
