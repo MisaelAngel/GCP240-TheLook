@@ -240,6 +240,12 @@ explore: ten_million_orders {
     relationship: many_to_one
   }
 
+  # join: orders {
+  #   type: left_outer
+  #   sql_on: ${ten_million_orders.order_id} = ${orders.id} ;;
+  #   relationship: many_to_one
+  # }
+
   join: users {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;

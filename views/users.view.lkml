@@ -52,6 +52,12 @@ view: users {
     sql: ${TABLE}.created_at ;;
   }
 
+  dimension: raw_date {
+    type: date_raw
+    sql: ${TABLE}.created_at ;;
+    convert_tz: no
+  }
+
   dimension: email {
     type: string
     sql: ${TABLE}.email ;;
@@ -74,10 +80,14 @@ view: users {
     sql: ${TABLE}.last_name ;;
   }
 
-  dimension: state {
-    type: string
-    sql: ${TABLE}.state ;;
-  }
+  # dimension: state {
+  #   type: string
+  #   sql: ${TABLE}.state ;;
+  #   link: {
+  #     label: "Test_link"
+  #     url: "www.google.com/{{ value }}"
+  #   }
+  # }
 
   dimension: zip {
     type: zipcode

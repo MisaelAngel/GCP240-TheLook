@@ -1,3 +1,4 @@
+include: "/views/users.view.lkml"
 # The name of this view in Looker is "Inventory Items"
 view: inventory_items {
   # The sql_table_name parameter indicates the underlying database table
@@ -45,6 +46,15 @@ view: inventory_items {
     type: number
     # hidden: yes
     sql: ${TABLE}.product_id ;;
+  }
+
+  dimension: str_id {
+    type: string
+    sql: "Test" ;;
+    link: {
+      label: "Test_link"
+      url: "www.google.com/{{ users.state._value }}"
+    }
   }
 
   dimension_group: sold {

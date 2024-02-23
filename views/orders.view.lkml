@@ -20,7 +20,8 @@ view: orders {
     type: time
     timeframes: [raw, time, date, week, month, quarter, year]
     sql: ${TABLE}.created_at ;;
-    html: {{ rendered_value | date: "%d-%b" }};;
+    # convert_tz: no
+    # html: {{ rendered_value | date: "%d-%b" }};;
   }
     # Here's what a typical dimension looks like in LookML.
     # A dimension is a groupable field that can be used to filter query results.
@@ -36,6 +37,16 @@ view: orders {
     # hidden: yes
     sql: ${TABLE}.user_id ;;
   }
+
+  dimension: str_id {
+    type: string
+    sql: "Test" ;;
+    link: {
+      label: "Test_link"
+      url: "www.google.com/{{ users.state._value }}"
+    }
+  }
+
   measure: count {
     type: count
     drill_fields: [detail*]
