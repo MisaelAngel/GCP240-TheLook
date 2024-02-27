@@ -127,7 +127,7 @@ view: users {
   }
 
   dimension: test_dimension_localization{
-    label: "test_dimension"
+    label: "dimension_label"
     label_from_parameter: test
     sql: "Test" ;;
   }
