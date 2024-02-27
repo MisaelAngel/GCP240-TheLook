@@ -89,6 +89,16 @@ view: users {
   #   }
   # }
 
+  measure: v {
+    type: number
+    sql: 12345678901234 ;;
+  }
+
+  # measure: sum_v {
+  #   type: sum
+  #   sql: ${v} ;;
+  # }
+
   dimension: zip {
     type: zipcode
     sql: ${TABLE}.zip ;;
@@ -97,6 +107,32 @@ view: users {
     type: count
     drill_fields: [detail*]
   }
+
+
+  parameter: test {
+    label: "parameter_label_test"
+# default_value: ""
+    allowed_value: {
+      label: ""
+      value: ""
+    }
+    allowed_value: {
+      label: "Value 1"
+      value: "value_1"
+    }
+    allowed_value: {
+      label: "Value 2"
+      value: "value_2"
+    }
+  }
+
+  dimension: test_dimension_localization{
+    label: "test_dimension"
+    label_from_parameter: test
+    sql: "Test" ;;
+  }
+
+
 
   # ----- Sets of fields for drilling ------
   set: detail {

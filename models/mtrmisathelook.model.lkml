@@ -24,6 +24,9 @@ persist_with: mtrmisathelook_default_datagroup
 
 # To see the Explore you’re building, navigate to the Explore menu and select an Explore under "Mtrmisathelook"
 
+explore: sql_runner_query {}
+
+
 explore: billion_orders {
   join: orders {
     type: left_outer
