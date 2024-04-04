@@ -7,3 +7,8 @@ project_name: "mtrmisathelook"
 #   project: "name_of_other_project"
 # }
 new_lookml_runtime: yes
+
+localization_settings: {
+  default_locale: en
+  localization_level: permissive
+}

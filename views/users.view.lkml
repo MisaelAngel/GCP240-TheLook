@@ -80,14 +80,14 @@ view: users {
     sql: ${TABLE}.last_name ;;
   }
 
-  # dimension: state {
-  #   type: string
-  #   sql: ${TABLE}.state ;;
-  #   link: {
-  #     label: "Test_link"
-  #     url: "www.google.com/{{ value }}"
-  #   }
-  # }
+  dimension: state {
+    type: string
+    sql: ${TABLE}.state ;;
+    link: {
+      label: "Test_link"
+      url: "www.google.com/{{ value }}"
+    }
+  }
 
   measure: v {
     type: number
@@ -105,32 +105,50 @@ view: users {
   }
   measure: count {
     type: count
+    label: "count_label"
     drill_fields: [detail*]
   }
 
 
+  filter: test_filter {
+    type: string
+    default_value: "D 1"
+  }
+
   parameter: test {
-    label: "parameter_label_test"
-# default_value: ""
+    # type: unquoted
+    # label: "parameter_label_test"
+    default_value: "Dimension Label" #Dimension label we want to show on (test_dimension_localization) dimension, when no value is selected for the parameter
     allowed_value: {
       label: ""
       value: ""
     }
     allowed_value: {
-      label: "Value 1"
-      value: "value_1"
+      label: "D 1"
+      value: "D 1"
     }
     allowed_value: {
-      label: "Value 2"
-      value: "value_2"
+      label: "D 2"
+      value: "D 2"
     }
   }
 
   dimension: test_dimension_localization{
-    label: "dimension_label"
+    # label: "{{_filters['users.test_filter']}}"
+    label: "{% parameter test %}"
+    # label: "{{users.test._parameter_value | remove: \"'\"}}"
+    # label: "{% if users.test._parameter_value == 'D 1' %} Dimension 1 {% else %} Dimension Label {% endif %}"
+    # label: "{% if '{% parameter test %}' == 'D 1' %} Dimension 1 {% else %} Dimension Label {% endif %}"
+    # label: "Dimension Label"
+    # label: "{% if users.test._parameter_value == 'D 1' %} Dimension 1 {% else %} Dimension Label {% endif %}"
     label_from_parameter: test
     sql: "Test" ;;
   }
+
+
+
+
+
 
 
 
